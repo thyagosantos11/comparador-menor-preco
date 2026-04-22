@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+.eggs/
+
+# Ambientes virtuais
+venv/
+env/
+.env
+.venv
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Planilhas reais (não subir dados do cliente)
+*.xlsx
+*.xls
+!exemplo/*.xlsx
+
+# Resultado gerado
+resultado_menor_preco.xlsx
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
