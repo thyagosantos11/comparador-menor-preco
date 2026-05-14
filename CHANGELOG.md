@@ -1,19 +1,23 @@
 # Changelog
 
-Todas as mudanças relevantes do projeto são documentadas aqui.
-Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
+## [1.1.0] - 2026-05-14
+
+### Adicionado
+- Aba "Montar Pedido" com cadastro persistente de produtos e fornecedores
+- Coluna "Venda (R$)" no relatório comparativo
+- Coluna "% Lucro" com destaque vermelho (< 20%) e verde (≥ 20%)
+
+### Corrigido
+- Fornecedor na última coluna da planilha era ignorado no resultado
 
 ---
 
-## [1.0.0] - 2026-04-22
+## [1.0.0] - 2026-04-23
 
 ### Adicionado
-- Interface desktop com CustomTkinter
-- Seleção de arquivo de entrada via janela de diálogo
-- Escolha da pasta de destino do relatório
-- Processamento automático de fornecedores (detectados pelas colunas)
+- Versão inicial do comparador de menor preço
+- Leitura de planilha RELAÇÃO DE COMPRA.xlsx
+- Detecção automática de fornecedores pelas colunas
 - Cálculo do menor preço por produto
-- Geração de Excel formatado com destaque visual para menor preço
-- Ranking de fornecedores no log de execução
-- Barra de progresso durante o processamento
-- Botão para abrir o arquivo gerado diretamente
+- Relatório Excel formatado com destaque visual
+- Ranking de fornecedores por número de menores preços
