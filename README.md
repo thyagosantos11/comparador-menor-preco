@@ -1,6 +1,6 @@
 # 📊 Comparador de Menor Preço
 
-Aplicação desktop para análise automática de cotações de fornecedores, desenvolvida para o **Mercainho Esperança**.
+Aplicação desktop para análise automática de cotações de fornecedores, desenvolvida para um mercado local.
 
 Carrega uma planilha Excel com preços de múltiplos fornecedores e gera automaticamente um relatório formatado destacando o menor preço por produto.
 
