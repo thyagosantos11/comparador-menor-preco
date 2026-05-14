@@ -79,8 +79,20 @@ def montar_nome_produto(df_raw, fornecedores):
 
 def carregar_planilha(arquivo):
     df_raw = pd.read_excel(arquivo, header=0)
-    fornecedores = list(df_raw.columns[3:-1])
-    df_raw.columns = ["venda", "produto_orig", "quant"] + fornecedores + ["obs"]
+    # Detecta automaticamente se a última coluna é "obs" ou um fornecedor
+    ultima_col = str(df_raw.columns[-1]).strip().lower()
+    nomes_obs = {"obs", "observacao", "observacoes", "observacao", "observacoes", "nan", "unnamed"}
+    eh_obs = ultima_col in nomes_obs or ultima_col.startswith("unnamed")
+    if not eh_obs:
+        # Se nenhum valor numérico na última coluna, trata como obs
+        valores_ultima = pd.to_numeric(df_raw.iloc[:, -1], errors="coerce")
+        eh_obs = valores_ultima.notna().sum() == 0
+    if eh_obs:
+        fornecedores = list(df_raw.columns[3:-1])
+        df_raw.columns = ["venda", "produto_orig", "quant"] + fornecedores + ["obs"]
+    else:
+        fornecedores = list(df_raw.columns[3:])
+        df_raw.columns = ["venda", "produto_orig", "quant"] + fornecedores
     df_raw = df_raw.dropna(how="all")
     df_raw["produto"] = montar_nome_produto(df_raw, fornecedores)
     df_raw = df_raw[df_raw["produto"].notna()].reset_index(drop=True)
